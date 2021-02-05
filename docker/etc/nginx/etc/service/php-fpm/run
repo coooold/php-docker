@@ -3,4 +3,4 @@
 exec 2>&1
 source /env
 
-exec php-fpm8 --nodaemonize
+exec php-fpm8 -R --nodaemonize

@@ -3,7 +3,7 @@ MAINTAINER coooold
 
 ARG BUILD_DATE
 ARG VCS_REF
-ARG TIMEZONE=Asia/Shanghai
+#ARG TIMEZONE=Asia/Shanghai
 ARG IS_CN=y
 
 LABEL org.label-schema.build-date=$BUILD_DATE \
@@ -57,9 +57,9 @@ RUN set -x \
     && if [ "${IS_CN}" = "y" ]; then sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories; fi \
     && apk add --no-cache $DEPS \
     && ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log \
-    && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-    && echo "${TIMEZONE}" > /etc/timezone
+    && ln -sf /dev/stderr /var/log/nginx/error.log
+    # && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
+    # && echo "${TIMEZONE}" > /etc/timezone
 
 
 COPY etc/nginx /
