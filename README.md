@@ -1,2 +1,2 @@
-# php-docker
-php-docker
+# Docker for PHP8 developers
+
